@@ -44,9 +44,9 @@ public class ExamResultService extends CommonEntryDao {
 	}
 
 	public void addTestScore(Context context, int totalScore, int rightCount,
-                             int wrongCount, int totalCount, String dateTime, String useTime) {
+                             int wrongCount, int totalCount, String dateTime, String useTime,String who) {
 		entry = new ExamResultEntry(totalScore, rightCount, wrongCount,
-				totalCount, dateTime, useTime);
+				totalCount, dateTime, useTime,who);
 		super.add(context, entry.getContentValueByEntry());
 	}
 	public ExamResultEntry getThisTestScore(Context context) {
@@ -57,7 +57,8 @@ public class ExamResultService extends CommonEntryDao {
 				(Integer) map.get("rightCount"),
 				(Integer) map.get("wrongCount"),
 				(Integer) map.get("totalCount"), (String) map.get("dateTime"),
-				(String) map.get("useTime"));
+				(String) map.get("useTime"), (String) map.get("who")
+		);
 		return entry;
 	}
 

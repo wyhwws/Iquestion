@@ -19,6 +19,16 @@ public class ExamResultEntry implements Serializable {
 	private String dateTime;
 	private String useTime;
 
+	public String getWho() {
+		return who;
+	}
+
+	public void setWho(String who) {
+		this.who = who;
+	}
+
+	private String who;
+
 	public ContentValues getContentValueByEntry() {
 		ContentValues values = new ContentValues();
 		// values.put("_id", _id);
@@ -28,11 +38,12 @@ public class ExamResultEntry implements Serializable {
 		values.put("totalCount", totalCount);
 		values.put("dateTime", dateTime);
 		values.put("useTime", useTime);
+		values.put("who", who);
 		return values;
 	}
 
 	public ExamResultEntry(int totalScore, int rightCount, int wrongCount,
-                           int totalCount, String dateTime, String useTime) {
+                           int totalCount, String dateTime, String useTime,String who) {
 		super();
 		// TODO Auto-generated constructor stub
 		this.totalScore = totalScore;
@@ -41,10 +52,11 @@ public class ExamResultEntry implements Serializable {
 		this.totalCount = totalCount;
 		this.dateTime = dateTime;
 		this.useTime = useTime;
+		this.who = who;
 	}
 
 	public ExamResultEntry(int _id, int totalScore, int rightCount,
-                           int wrongCount, int totalCount, String dateTime, String useTime) {
+                           int wrongCount, int totalCount, String dateTime, String useTime,String who) {
 		super();
 		// TODO Auto-generated constructor stub
 		this._id = _id;
@@ -54,6 +66,7 @@ public class ExamResultEntry implements Serializable {
 		this.totalCount = totalCount;
 		this.dateTime = dateTime;
 		this.useTime = useTime;
+		this.who = who;
 	}
 
 	public ExamResultEntry() {

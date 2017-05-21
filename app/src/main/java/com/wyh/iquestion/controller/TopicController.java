@@ -341,9 +341,9 @@ public class TopicController {
 	}
 
 	public void addTestScore(int totalScore, int rightCount, int wrongCount,
-                             int totalCount, String dateTime, String useTime) {
+                             int totalCount, String dateTime, String useTime,String who) {
 		examResultService.addTestScore(context, totalScore, rightCount,
-				wrongCount, totalCount, dateTime, useTime);
+				wrongCount, totalCount, dateTime, useTime,who);
 	}
 
 //	public ExamResultEntry getThisTestScore() {

@@ -53,7 +53,7 @@ public class RecordActivity extends BaseActivity {
 							.get("rightCount"), (Integer) entry
 							.get("wrongCount"), (Integer) entry
 							.get("totalCount"), (String) entry.get("dateTime"),
-					(String) entry.get("useTime")));
+					(String) entry.get("useTime"),(String) entry.get("who")));
 			count++;
 		}
 		SimpleAdapter simpleAdapter = new SimpleAdapter(this, itemList,

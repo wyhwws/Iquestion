@@ -12,11 +12,13 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.PopupWindow;
@@ -345,14 +347,21 @@ public class TopicActivity extends FragmentActivity {
 		submitTest();
 	}
 	private void submitTest() {
+        LayoutInflater factory= LayoutInflater.from(TopicActivity.this);
+        final View v1=factory.inflate(R.layout.login,null);
 		new AlertDialog.Builder(TopicActivity.this)
 				.setTitle(getResources().getString(R.string.topic_exit_exam))
+                .setView(v1)
 				.setNegativeButton(getResources().getString(R.string.ok),
 						new DialogInterface.OnClickListener() {
 							@Override
 							public void onClick(DialogInterface dialog,
 									int which) {
 								// TODO Auto-generated method stub
+                                EditText nameEditText = (EditText) v1.findViewById(R.id.usr);
+
+                                String who = nameEditText.getText().toString();
+
 								String useTime = ch_topic_test.getText()
 										.toString();
 								int totalCount = tc.getRightCount()
@@ -364,7 +373,7 @@ public class TopicActivity extends FragmentActivity {
 										+ c.get(Calendar.DAY_OF_MONTH);
 								tc.addTestScore(totalScore, tc.getRightCount(),
 										tc.getWrongCount(), totalCount,
-										dateTime, useTime);
+										dateTime, useTime,who);
 								Intent intent = new Intent(TopicActivity.this,
 										DetailsRecordActivity.class);
 								intent.putExtra("MODE", 1);
