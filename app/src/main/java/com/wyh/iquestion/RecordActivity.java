@@ -43,7 +43,7 @@ public class RecordActivity extends BaseActivity {
 			itemMap.put(
 					"content",
 					getString(R.string.record_times) + count
-							+ getString(R.string.record_exam) + "("
+							+ getString(R.string.record_exam)+" " + entry.get("who") + "("
 							+ entry.get("totalScore")
 							+ getString(R.string.record_score) + ")");
 			itemMap.put("dateTime", entry.get("dateTime"));
